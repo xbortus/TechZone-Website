@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nowinki technologiczne – TechZone</title>
+  <link rel="stylesheet" href="premiery.css">
+</head>
+<body>
+
+<header class="header">
+  <div class="nav-container">
+    <a href="index.html" class="logo">
+      <img src="img/logo.png" alt="TechZone Logo">
+    </a>
+    <nav class="nav">
+      <ul>
+        <li><a href="index.html">Strona główna</a></li>
+        <li><a href="tech.html" class="active">Nowinki</a></li>
+        <li><a href="premiery.html">Premiery</a></li>
+        <li><a href="contact.html">Kontakt</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="filters">
+  <button class="filter-btn active" data-category="all">Wszystko</button>
+  <button class="filter-btn" data-category="robotics">Robotyka</button>
+  <button class="filter-btn" data-category="ai">AI</button>
+  <button class="filter-btn" data-category="business">Biznes</button>
+</section>
+
+<section class="cards">
+
+  <!-- CES 2026 – ROBOTY -->
+  <div class="card" data-category="robotics">
+    <img src="img/robot_smarthomeCES.png" alt="Inteligentne roboty CES 2026">
+    <div class="content">
+      <h3>Inteligentne roboty na CES 2026</h3>
+      <p>
+        CES 2026 został zdominowany przez inteligentne roboty,
+        humanoidalnych asystentów i autonomiczne systemy.
+      </p>
+      <a href="article-robots.html" class="btn">Czytaj więcej →</a>
+    </div>
+  </div>
+
+  <!-- ARM PHYSICAL AI -->
+  <div class="card" data-category="ai">
+    <img src="img/arm_physicalAI.png" alt="ARM Physical AI">
+    <div class="content">
+      <h3>ARM tworzy jednostkę Physical AI</h3>
+      <p>
+        ARM rozwija sztuczną inteligencję działającą w świecie fizycznym —
+        od robotów po autonomiczne pojazdy.
+      </p>
+      <a href="article-arm-ai.html" class="btn">Czytaj więcej →</a>
+    </div>
+  </div>
+
+  <!-- APPLE & GOOGLE -->
+  <div class="card" data-category="business">
+    <img src="img/apple_andgoogle_cooperation.png" alt="Apple i Google AI">
+    <div class="content">
+      <h3>Apple i Google łączą siły w AI</h3>
+      <p>
+        Historyczna współpraca gigantów technologicznych w obszarze
+        sztucznej inteligencji i systemów mobilnych.
+      </p>
+      <a href="article-apple-google.html" class="btn">Czytaj więcej →</a>
+    </div>
+  </div>
+
+</section>
+
+<footer>
+  © 2026 TechZone. Wszystkie prawa zastrzeżone.
+</footer>
+
+<!-- FILTROWANIE -->
+<script>
+  const buttons = document.querySelectorAll('.filter-btn');
+  const cards = document.querySelectorAll('.card');
+
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      buttons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const category = btn.dataset.category;
+
+      cards.forEach(card => {
+        const match = category === 'all' || card.dataset.category === category;
+        card.style.display = match ? 'block' : 'none';
+      });
+    });
+  });
+</script>
+
+</body>
+</html>
